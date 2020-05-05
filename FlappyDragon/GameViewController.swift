@@ -9,11 +9,12 @@
 import UIKit
 import SpriteKit
 import GameplayKit
-
-var stage: SKView!
-
+import AVFoundation
 
 class GameViewController: UIViewController {
+	
+	var stage: SKView!
+	var musicPlayer: AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class GameViewController: UIViewController {
 		stage.ignoresSiblingOrder = true
 		
 		presentScene()
+		playMusic()
     }
 	
 	// Metodo para mostrar a Scene
@@ -28,8 +30,18 @@ class GameViewController: UIViewController {
 	// Configura a scene para aumentar caso o aparelho seja maior
 	func presentScene() {
 		let scene = GameScene(size: CGSize(width: 320, height: 568))
+		scene.gameViewController = self
 		scene.scaleMode = .aspectFill
-		stage.presentScene(scene)
+		stage.presentScene(scene, transition: .doorsCloseVertical(withDuration: 0.5))
+	}
+	
+	func playMusic() {
+		if let musicURL = Bundle.main.url(forResource: "music", withExtension: "m4a") {
+			musicPlayer = try! AVAudioPlayer(contentsOf: musicURL)
+			musicPlayer.numberOfLoops = -1
+			musicPlayer.volume = 0.4
+			musicPlayer.play()
+		}
 	}
 
     override var prefersStatusBarHidden: Bool {
