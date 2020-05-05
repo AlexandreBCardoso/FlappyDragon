@@ -62,6 +62,7 @@
 		BCCE9EA5245C9625009DDF40 /* FlappyDragon */ = {
 			isa = PBXGroup;
 			children = (
+				BCCE9EB3245C9626009DDF40 /* Assets.xcassets */,
 				BCCE9EBF245C99FF009DDF40 /* Music */,
 				BCCE9EBE245C9767009DDF40 /* Storyboard */,
 				BCCE9EA6245C9625009DDF40 /* AppDelegate.swift */,
@@ -76,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				BCCE9EB0245C9625009DDF40 /* Main.storyboard */,
-				BCCE9EB3245C9626009DDF40 /* Assets.xcassets */,
 				BCCE9EB5245C9626009DDF40 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
